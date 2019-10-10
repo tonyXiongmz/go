@@ -11,11 +11,41 @@ export PATH=$PATH:/usr/local/go/bin
 go version  查看版本号go version go1.13.1 linux/amd64
  也可以新建go文件测试
  vim test.go
- packeage main
- import "frm" //注意这里是双引号
- func main(){
+ packeage main  //定义了包名
+ import "frm" //告诉Go编译器，这个程序使用frm包函数，注意这里是双引号
+ func main(){  //程序开始执行函数
     frm.Println("Hello World");//注意大小写
  }
+ 
+ go声明变量
+ 1、指定变量类型
+ var name string
+ var num int
+ var name1,name2 string
+ var num1,num2 int=1,2
+ 
+ 变量的初始值如果没有声明，int 0,float 0,bool false,string ""
+ 
+ 2、自行判断变量类型
+ var name=true //bool
+ 
+ 3、省略var,注意:=左侧没有声明新变量或是已声明的变量都会报错
+ name := 'hha' //正确
+ 
+ var name
+ name := '哈哈' //错误
+ 
+ 4、全局变量，这种方式一般用来声明全局变量
+ var (
+  name = '哈哈'
+  num int
+ )
+ 
+ 
+ 命令源码文件
+ 声明自己属于main包
+ 库源码文件
+ 测试源码文件
 
 
 
