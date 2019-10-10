@@ -76,6 +76,11 @@ go声明变量
      fallthrough
  }
  
+ select { //和switch类似
+  case 1:
+  case 2:
+  default:
+ }
  
  命令源码文件
  声明自己属于main包
