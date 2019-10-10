@@ -46,6 +46,37 @@ go声明变量
   l // 24 0011<<3 0001 1100
  )
  
+ 条件判断语句
+ if a<20 {
+  if b<15{
+  
+  }
+ } else {
+ 
+ }
+ 
+ switch name {
+  case 'zhang':
+  case '王':
+ }
+ 
+ switch {
+  case name='zhang':
+  case name='王':
+ }
+ 
+ fallthrough的用法，使用 fallthrough 会强制执行后面的 case 语句，fallthrough 不会判断下一条 case 的表达式结果是否为 true。
+ switch age{
+   case 10:
+    fallthrough  //添加此关键字以后，该条件下的结果不输出，输出下一个条件的结果
+    case 20:
+     fallthrough
+     case 30:
+     case 40:
+     fallthrough
+ }
+ 
+ 
  命令源码文件
  声明自己属于main包
  库源码文件
