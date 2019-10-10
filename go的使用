@@ -1,0 +1,52 @@
+go声明变量
+ 1、指定变量类型
+ var name string
+ var num int
+ var name1,name2 string
+ var num1,num2 int=1,2
+ 
+ 变量的初始值如果没有声明，int 0,float 0,bool false,string ""
+ 
+ 2、自行判断变量类型
+ var name=true //bool
+ 
+ 3、省略var,注意:=左侧没有声明新变量或是已声明的变量都会报错，只能使用在函数体内部
+ name := 'hha' //正确
+ 
+ var name
+ name := '哈哈' //错误
+ 
+ 4、全局变量，这种方式一般用来声明全局变量
+ var (
+  name = '哈哈'
+  num int
+ )
+ 
+ 注意事项：
+ 1、同一个变量两次初始化是不被允许的，可以重新赋值
+ 2、声明一个局部变量，如果没有用到会报错
+ 
+ 声明常量
+ const关键字
+ const name string='wang'
+ 
+ iota用法,初始值为0，每使用一次+1，占位也+1但不覆盖原有值
+ const(
+  i=iota // 0
+  j=iota // 1
+  k=6  // 6
+  l=iota // 3
+ )
+ 
+ 移位的用法，二进制的位移
+ const(
+  i=1<<iota // 1 0001<<0
+  j=3<<iota // 6  0011<<1 0110
+  k // 12 0011<<2 1100
+  l // 24 0011<<3 0001 1100
+ )
+ 
+ 命令源码文件
+ 声明自己属于main包
+ 库源码文件
+ 测试源码文件
