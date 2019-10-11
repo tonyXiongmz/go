@@ -82,6 +82,27 @@ go声明变量
   default:
  }
  
+ 循环语句
+ for a:=0;a<10;a++{
+  if a==8{
+   continue;
+  }
+  if a==9{
+   break;
+  }
+ }
+ 
+ var a int = 10
+ for a<20{
+ 
+ }
+ 
+ LOOP:for a<15{
+  if a==12{
+   goto LOOP //跳回LOOP，类似continue
+  }
+ }
+ 
  命令源码文件
  声明自己属于main包
  库源码文件
