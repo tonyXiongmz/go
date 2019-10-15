@@ -56,7 +56,7 @@ go声明变量
  } else {
  
  }
- 
+ //if条件里可以赋值,但只在if结构内有用!
  switch name {
   case 'zhang':
   case '王':
@@ -66,7 +66,7 @@ go声明变量
   case name='zhang':
   case name='王':
  }
- 
+ switch中默认break,switch后面可以没有表达式
  fallthrough的用法，使用 fallthrough 会强制执行后面的 case 语句，fallthrough 不会判断下一条 case 的表达式结果是否为 true。
  switch age{
    case 10:
