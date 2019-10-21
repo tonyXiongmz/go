@@ -105,7 +105,24 @@ go声明变量
   }
  }
  
+ 数组的定义
+ var arr [5] int  定义数组
+ arr := [3] int {1,2,4} 数组赋值
+ arr := [...] int {3,4,6,7,8}
+ var arr  [3][5] int  二维数组
  
+ 数组的循环
+ for i:=0;i<len(arr);i++{
+  fmt.Println(arr[i])
+ }
+ 
+ for i:=range arr {
+  fmt.Println(arr[i])
+ }
+ 
+ for i,v := range arr {
+  fmt.Println(i,n)
+ }
  强制类型转换，go语言中变量的类型必须是一致的，如果和定义不符，需要强制转换为同类型
  
  定义结构体
