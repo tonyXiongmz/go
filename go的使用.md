@@ -155,14 +155,15 @@ go声明变量
  }
  
  map是无序集合，键值对的形式，但顺序是是可变的
- map[string]string
+ var m map[string]string
  make(map[string]string)
  people:=map[string]string//创建map
  people['name'] = '张三'
  people['class'] = '高三'
  
  people := map[string]string{'李四','王五'}
- delete(people['李四'])  //删除map值
+ len(people)//长度
+ delete(people,'李四')  //删除map值
  命令源码文件
  声明自己属于main包
  库源码文件
