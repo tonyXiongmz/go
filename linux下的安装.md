@@ -7,6 +7,15 @@ wget https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz
 tar -zxf go1.13.1.linux-amd64.tar.gz -C /usr/local
 3、将 /usr/local/go/bin 目录添加至PATH环境变量
 export PATH=$PATH:/usr/local/go/bin
+
+全局变量的设置
+vim /etc/profile
+
+export GOROOT=/usr/local/go  #设置为go安装的路径，有些安装包会自动设置默认的goroot
+export GOPATH=$PATH:/root/go   #默认安装包的路径
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+source /etc/profile//重启配置
 4、验证安装是否成功
 go version  查看版本号go version go1.13.1 linux/amd64
  也可以新建go文件测试
