@@ -20,10 +20,10 @@ source /etc/profile//重启配置
 go version  查看版本号go version go1.13.1 linux/amd64
  也可以新建go文件测试
  vim test.go
- packeage main  //定义了包名
- import "frm" //告诉Go编译器，这个程序使用frm包函数，注意这里是双引号
+ package main  //定义了包名
+ import "fmt" //告诉Go编译器，这个程序使用frm包函数，注意这里是双引号
  func main(){  //程序开始执行函数
-    frm.Println("Hello World");//注意大小写
+    fmt.Println("Hello World");//注意大小写
  }
  
  
