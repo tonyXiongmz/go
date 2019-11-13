@@ -1,7 +1,8 @@
 1、安装包依赖https://goproxy.io/zh/，直接go get -u github.com/gin-gonic/gin会被墙
 2、goland编辑器中打开设置，setting->go->GOROOT配置安装目录C:\Go->gopath添加项目目录D:\go,勾选Index entire GOPATH->Go Modules,勾选Enable GO Modules,proxy填写为
 https://goproxy.io
-3、windows系统打开windows powershell ，键入go get -u github.com/gin-gonic/gin，如果无报错则安装成功，如果有报错，缺少什么包就安装什么包
+3、windows系统打开windows powershell ，键入$env:GO111MODULE="on"  $env:GOPROXY="https://goproxy.io"
+然后go get -u github.com/gin-gonic/gin，如果无报错则安装成功，如果有报错，缺少什么包就安装什么包
 4、验证，新建一个go文件
 package main
 
