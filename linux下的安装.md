@@ -1,5 +1,6 @@
 安装包下载地址为：https://golang.org/dl/。
 如果打不开可以使用这个地址：https://golang.google.cn/dl/。
+安装包依赖https://goproxy.io/zh/
 
 1、将文件下载到服务器文件夹下，我的software
 wget https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz
