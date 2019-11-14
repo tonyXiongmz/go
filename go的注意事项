@@ -4,3 +4,5 @@ form:"birthday" time_format:"2006-01-02"
 
 2、gin输出自定义端口必须加冒号
 r.Run(":8084")
+
+3、多语言翻译验证必须使用validator.v9版本
