@@ -1,3 +1,6 @@
 1、go的格式化时间，很恶心，数字必须匹配
 time.Now().Format("2006-01-02 15:04:05")
 form:"birthday" time_format:"2006-01-02"
+
+2、gin输出自定义端口必须加冒号
+r.Run(":8084")
