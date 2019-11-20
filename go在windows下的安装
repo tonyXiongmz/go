@@ -3,3 +3,5 @@
 GOROOT  安装路径  新增
 GOPATH  工作目录  新增
 path  bin目录   编辑 ;"%GOROOT%"\bin
+
+3、cmd今天dos环境，go version，显示go版本号则配置成功
