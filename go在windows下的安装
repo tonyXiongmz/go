@@ -1,0 +1,5 @@
+1、下载对应的安装包https://studygolang.com/dl
+2、安装完成以后，配置环境变量
+GOROOT  安装路径
+GOPATH  bin目录
+path  工作目录
