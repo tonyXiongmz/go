@@ -1,4 +1,11 @@
-dir显示当前目录下文件
-cd 切换路径
-md 生成目录，生成多个目录用空格隔开
-rd删除空目录，rd /q  /s询问  递归删除
+1、dir显示当前目录下文件
+2、cd 切换路径
+3、md 生成目录，生成多个目录用空格隔开
+4、rd删除空目录，rd /q  /s询问  递归删除
+5、echo hello > d:/test/ab.txt生成文件
+6、copy ab.txt d:/ab/cc.txt复制文件
+7、move abc.txt e:/  移动文件
+8、del abc.txt  删除文件，del *.txt删除所有txt文件
+9、cls清理屏幕
+10、exit退出
+
