@@ -37,3 +37,6 @@ uint64 0--2^64-1
 16、string，汉字显示Unicode值用%d,Unicode显示汉字用%c
 17、数据类型转换，显示类型转换，float32(i),int64(i)
 18、数据运算当心超出范围，数据溢出
+19、数据类型转string,fmt.Sprint("%d",val),这是转换函数，%f,%c,%t
+strconv.FormatFloat(num,'f',10,64)
+strconv.FormatInt(num,10)
