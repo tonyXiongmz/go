@@ -46,3 +46,4 @@ strconv.Itoa(num)
 strconv.ParseInt(str,10,64)
 strconv.ParseFloat(str,64)
 strconv.ParseBool(str)
+ 21、变量、常量、结构体如果是小写开头只能在本包下使用，大写可以全局使用
