@@ -40,3 +40,9 @@ uint64 0--2^64-1
 19、数据类型转string,fmt.Sprint("%d",val),这是转换函数，%f,%c,%t
 strconv.FormatFloat(num,'f',10,64)
 strconv.FormatInt(num,10)
+
+strconv.Itoa(num)
+20、字符串转其他类型,如果是混合字符串类型会转成string,值为0，false
+strconv.ParseInt(str,10,64)
+strconv.ParseFloat(str,64)
+strconv.ParseBool(str)
