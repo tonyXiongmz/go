@@ -1,0 +1,42 @@
+1、defer和recover处理机制
+
+package main
+
+import "fmt"
+
+func main() {
+	test()
+	fmt.Println("main()下面的代码")
+}
+
+//defer和recover处理预警机制
+func test(){
+	defer func(){
+		if err := recover();err != nil{
+			fmt.Println("err = ",err)
+			fmt.Println("给管理员admin发送邮件")
+		}
+	}()
+	var num1 = 100
+	var num2 = 0
+	res := num1/num2
+	fmt.Println("res=",res)
+}
+
+2、自定义错误信息
+func test01(){
+	err := read("config.ini")
+	if err != nil{
+		panic(err)
+	}
+	fmt.Println("程序继续执行。。。")
+}
+
+func read(name string)(err error){
+	if name == "config.in"{
+		return nil
+	}else{
+		return errors.New("文件名称错误。。。")//自定义错误信息
+	}
+}
+
