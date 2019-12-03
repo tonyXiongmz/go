@@ -1,0 +1,79 @@
+package main
+
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
+
+func main() {
+	//1、字符串长度函数
+	var str = "hello,中国"//中文一个字符占三个字节
+	fmt.Println("str len=",len(str))//12
+
+	//2、字符串循环输出
+	str1 := "hello"
+	for i:=0;i<len(str1);i++{
+		fmt.Printf("字符串str1的%d字符=%c\n",i,str1[i])//  0 h 1 e 2 l 3 l 4 o
+	}
+
+	for i:=0;i<len(str);i++{
+		fmt.Printf("字符串str的%d字符=%c\n",i,str[i])//出现乱码，中文是三个字节，无法正常显示
+	}
+
+	r := []rune(str)
+	for i:=0;i<len(r);i++{
+		fmt.Printf("字符串str的%d字符=%c\n",i,r[i])//可以正常输出
+	}
+
+	for k,v := range str {
+		fmt.Printf("字符串str的%d字符=%c\n",k,v)//可以正常输出
+	}
+
+	//3、字符串转整数
+	v,err := strconv.Atoi("123")
+	if err != nil{
+		fmt.Println("err =",err)
+	}else{
+		fmt.Println("v =",v)
+	}
+
+	//4、整数转字符串
+	str3 := strconv.Itoa(1234)
+	fmt.Printf("str3的数据类型是%T\n",str3)//string
+
+	//5、字符串转byte
+	b := []byte("hello")
+	fmt.Printf("b的%v\n",b)//输出ascii码对应的值
+
+	//6、byte转字符串
+	str4 := string([]byte{97,98,99})
+	fmt.Printf("str4的%v\n",str4)//abc
+
+	//7、10进制转2、8、16进制，返回的是个字符串
+	str5 := strconv.FormatInt(123,2)
+	fmt.Printf("str5转换2进制的数是%v\n",str5)
+
+	str6 := strconv.FormatInt(123,8)
+	fmt.Printf("str6转换8进制的数是%v\n",str6)
+
+	str7 := strconv.FormatInt(123,16)
+	fmt.Printf("str7转换16进制的数是%v\n",str7)
+
+	//8、查找字符串是否在指定的字符串中，返回bool
+	b2 := strings.Contains("helloworld","or")
+	fmt.Println("b2=",b2)//true
+
+	//9、统计一个字符串出现几次
+	n2 := strings.Count("helloworld","l")
+	fmt.Println("出现次数=",n2)//3
+
+	//10、不区分大小写的字符串比较，返回bool
+	b3 := strings.EqualFold("abc","ABC")
+	fmt.Println("b3=",b3)//true
+
+	//11、判断字符串第一次出现的位置,如果没有返回-1
+	n5:= strings.Index("helloworld","o")
+	fmt.Println("n5=",n5)//4
+
+}
