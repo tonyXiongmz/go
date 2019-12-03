@@ -1,0 +1,59 @@
+package main
+
+import (
+	"fmt"
+	"strconv"
+	"time"
+)
+
+func main() {
+	//time.time时间类型
+	now := time.Now()
+	fmt.Printf("now的值%v,类型%T\n",now,now)//now的值2019-12-03 15:11:07.9811657 +0800 CST m=+0.007993801,类型time.Time
+
+	//1、格式化时间
+	fmt.Println("年=",now.Year())//2019
+	fmt.Println("月=",now.Month())//December
+	fmt.Println("月=",int(now.Month()))//12
+	fmt.Println("日=",now.Day())//3
+	fmt.Println("时=",now.Hour())//15
+	fmt.Println("分=",now.Minute())//15
+	fmt.Println("秒=",now.Second())//21
+
+	fmt.Printf("%d-%d-%d %d:%d:%d\n",now.Year(),now.Month(),now.Day(),now.Hour(),now.Minute(),now.Second())//2019-12-3 15:17:47
+
+	sdate := fmt.Sprintf("%d-%d-%d %d:%d:%d\n",now.Year(),now.Month(),now.Day(),now.Hour(),now.Minute(),now.Second())
+	fmt.Printf("当前年月日%v\n",sdate)//当前年月日2019-12-3 15:19:14
+
+	//2、格式化时间的另一种方法,格式化必须是这样的标准
+	fmt.Printf(now.Format("2006/01/02 15:04:05"))//2019/12/03 15:25:13
+	fmt.Printf(now.Format("2006/01/02 "))//2019/12/03
+
+
+	//3、时间常量,只能乘得到相应的值，不能除
+	for i:= 1;; {
+		fmt.Println(i)
+		i++
+		time.Sleep(time.Microsecond*100)//休眠
+		if i==20{
+			break
+		}
+	}
+
+
+	//4、unix和unixnano
+	fmt.Printf("秒数=%v和纳秒=%v\n",now.Unix(),now.UnixNano())
+
+	//5、程序执行时间
+	start := time.Now().Unix()
+	ti()
+	end := time.Now().Unix()
+	fmt.Printf("执行十万次的数据所需要的时间%v秒\n",end-start)
+}
+
+func ti(){
+	var str=""
+	for i:=0;i<100000;i++{
+		str += "hello"+strconv.Itoa(i)
+	}
+}
