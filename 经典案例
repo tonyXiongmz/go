@@ -1,0 +1,71 @@
+//---------金字塔--------------
+func jin(){
+	var top int
+	fmt.Println("请输入一个整数" )
+	fmt.Scanln(&top)
+	for i:=1;i<=top;i++{
+		for j:=1;j<=top-i;j++{
+			fmt.Print(" ")
+		}
+
+		for k:=1;k<=2*i-1;k++{
+			fmt.Print("*")
+		}
+		fmt.Println()
+	}
+}
+
+//--------------空心金字塔-------------------
+	var totalLevel = 9
+	for i:=1;i<=totalLevel;i++{
+		for j:=1;j<=totalLevel-i;j++{
+			fmt.Print(" ")
+		}
+
+		for k:=1;k<=2*i-1;k++{
+			if(k==1 || k==2*i-1 || i==totalLevel){
+				fmt.Print("*")
+			}else{
+				fmt.Print(" ")
+			}
+
+		}
+		fmt.Println()
+	}
+  
+  //-----------九九乘法表--------------
+  for i:=1;i<=9;i++{
+		for j:=1;j<=i;j++{
+			fmt.Printf("%d * %d=%d\t\t",j,i,i*j)
+		}
+		fmt.Println("\n")
+	}
+  
+  //------------斐波那契数--------
+  func final( a int ) int{
+	if a==1 || a==2{
+		return 1
+	}else{
+		return final(a-1) + final(a-2)
+	}
+}
+
+
+//------------猴子吃桃---------
+//猴子吃桃
+func t(d int) int  {
+	if d == 10{
+		return 1
+	}else if d<10 && d>=1{
+		return (t(d+1) +1)* 2
+	}else{
+		return 0
+	}
+	/*n := 1
+	for i:=0;i<10;i++{
+		n = 2*n+1
+		fmt.Printf("res-%d=%d\n",i,n)
+	}*/
+
+
+}
