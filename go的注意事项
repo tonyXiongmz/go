@@ -126,3 +126,7 @@ var (Fun := func(n1,n2 int) int{return n1*n2}) //匿名函数也可以赋给一�
 闭包函数
 匿名函数和使用到的函数体外的变量会形成一个引用关系，形成一个闭包整体，被引用的变量只初始化一次
 
+函数参数的传递方式
+值传递：基本数据类型int,float,bool,string,数组,struct
+引用传递：指针，切片slice，map，interface,chan管道
+
