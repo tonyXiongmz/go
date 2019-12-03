@@ -76,4 +76,49 @@ func main() {
 	n5:= strings.Index("helloworld","o")
 	fmt.Println("n5=",n5)//4
 
+	//12、判断字符串最后一次出现的位置,不存在返回-1
+	n6 := strings.LastIndex("helloworld","o")
+	fmt.Println("n6=",n6)//6
+
+	//13、替换指定的字符串，第四个参数表示替换几次，为-1代表替换所有
+	str8 := strings.Replace("helloworld","o","A",1)
+	fmt.Println("str8=",str8)//hellAworld
+
+	str9 := strings.ReplaceAll("helloworld","o","A")//全部替换
+	fmt.Println("str9=",str9)//hellAwArld
+
+	//14、字符串拆分数组
+	 arr := strings.Split("hello,world",",")
+	 fmt.Println("arr=",arr)//[hello world]
+
+	 //15、字符串大小写转换
+	 str10 := strings.ToLower("HELLO")
+	 fmt.Println("str10=",str10)//hello
+
+	 str11 := strings.ToUpper("hello")
+	fmt.Println("str11=",str11)//HELLO
+
+	//16、去掉字符串左右的空格
+	str12 := strings.TrimSpace(" A world ")
+	fmt.Println("str12=",str12)
+
+	//17、去掉字符串两侧指定的标识符
+	str13 := strings.Trim(" Hello world!"," ! ")
+	fmt.Println("str13=",str13)//Hello world
+
+	//18、去掉字符串左侧指定的标识符
+	str14 := strings.TrimLeft("@Hello","@")
+	fmt.Println("str14=",str14)//Hello
+
+	//19、去掉字符串右侧的指定标识符
+	str15 := strings.TrimRight("World%","%")
+	fmt.Println("str15=",str15)//world
+
+	//20、判断字符串指定前缀
+	b7 := strings.HasPrefix("abc.txt","ab")
+	fmt.Println("b7=",b7)//true
+
+	//21、判断字符串指定后缀
+	b8 := strings.HasSuffix("abc.txt","xt")
+	fmt.Println("b8=",b8)//true
 }
