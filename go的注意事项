@@ -144,4 +144,4 @@ var (Fun := func(n1,n2 int) int{return n1*n2}) //匿名函数也可以赋给一�
 3、slice可以动态增加，append(slice,value,value)数据类型要保持一致，切片也可以追加切片
 4、copy切片的拷贝，只能是切片之间的copy,长度不一致不会报错可以正常copy
 5、切片在函数传递的时候也是引用类型
-6、string也可以切片处理
+6、string也可以切片处理,但是不可以通过切片修改原有值，可以先转为byte或rune切片然后再转回string
