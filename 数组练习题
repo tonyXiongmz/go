@@ -54,3 +54,35 @@ func sumavg(){
 
 	fmt.Printf("数组的和为%d,平均值为%.2f\n",sum,float64(sum)/float64(len(arr)))
 }
+
+
+//数组反转显示
+func arrrev(){
+	rand.Seed(time.Now().Unix())
+	var arr [1000]int
+	len := len(arr)
+	for i:=0;i<len;i++{
+		arr[i] = rand.Intn(100000)
+		//fmt.Printf("数组反转的值为%d，下标为%d\t\n",arr[i],i)
+	}
+
+	//方法1
+	start1:= time.Now().UnixNano()
+	for j :=len-1;j>=0;j--{
+		fmt.Printf("数组反转的值为%d，下标为%d\n",arr[j],j)
+	}
+	end1 := time.Now().UnixNano()
+	fmt.Printf("for循环反转消耗的时长为%d\n",end1 - start1)
+
+	//方法2 这种方法更高效，基本无时间消耗
+	start2:= time.Now().UnixNano()
+	var temp int
+	for k:=0;k<len/2;k++{
+		temp = arr[len - 1 -k]
+		arr[len - 1 -k] = arr[k]
+		arr[k] = temp
+	}
+	fmt.Printf("数组替换的值为%d\n",arr)
+	end2 := time.Now().UnixNano()
+	fmt.Printf("for替换反转消耗的时长为%d\n",end2 - start2)
+}
