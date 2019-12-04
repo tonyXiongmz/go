@@ -1,12 +1,125 @@
 //1、循环打印输入的月份的天数，要有判断输入的月份是否错误的语句，continue
+func yearmonth(year,month int){
+	if month>12 || month < 1{
+		fmt.Println("您输入的月份错误")
+	}
+	var da int
 
+	switch month{
+		case 1,3,5,7,8,10,12 :
+			da = 31
+		case 2:
+			if (year%4 == 0 && year % 100 != 0) || (year % 400 ==0){
+				da = 29
+			}else{
+				da = 28
+			}
+		case 4,6,9,11:
+			da = 30
+	}
+
+	for i:=1;i<=da;i++{
+		fmt.Println("day=",i)
+	}
+
+
+}
 	//2、编写一个函数，随机猜数游戏，随机生成一个1到100的整数，有十次机会，如果第一次猜中，提示，“你真是个天才‘
 	//如果2-3次猜中提示“你很聪明，赶上我了”，4-9次猜中提示“一般般,如果最后一次猜中提示你可算猜对了，没猜对提示让我说你点啥好呢
-
+func caishu(){
+	rand.Seed(time.Now().Unix())
+	var num1 int
+	fmt.Println("请输入一个数")
+	fmt.Scanln(&num1)
+	num := rand.Intn(100)+1
+	count := 10
+	//fmt.Println(num)
+	for i:=1;i<=10;i++{
+		if num == num1 {
+			switch i{
+				case 1:
+					fmt.Println("你真是个天才")
+					break
+				case 2,3:
+					fmt.Println("你很聪明，赶上我了")
+					break
+				case 4,5,6,7,8,9:
+					fmt.Println("一般般")
+					break
+				case 10:
+					fmt.Println("你可算猜对了")
+					break
+			}
+			break
+		}else{
+			count--
+			if count == 0{
+				fmt.Println("你让我说你点啥好")
+				break
+			}
+			fmt.Printf("你还有%d次机会",count)
+			fmt.Println("请再次输入")
+			fmt.Scanln(&num1)
+		}
+	}
+}
 	//3、编写一个函数，输出100以内的所有素数（只能被自己和1整除），每行显示5个并求和
+func su(){
+	var sum int
+	var h int
+	for i:=1;i<=100;i++{
+		if i==1 {
+			continue
+		} else if i==2 || i==3 {
+			sum += i
+			h++
+			fmt.Printf("%d\t",i)
+			continue
+		}else if i%2!= 0 && i%3!=0 {
+			sum += i
+			h++
+			fmt.Printf("%d\t",i)
+			continue
+		}
 
+		if h == 5{
+			fmt.Println("sum=",sum)
+			fmt.Printf("\n")
+			h = 0
+		}
+	}
+	fmt.Println("sum=",sum)
+}
 	//4、编写一个函数，判断是打鱼还是晒网，从1990年1月1日开始执行
-
+func dayu(days string){
+	a,_:= time.Parse("20060102","19900101")
+	b,_:= time.Parse("20060102",days)
+	hours := b.Sub(a)
+	day := int(hours.Hours()/24);
+	//fmt.Printf("day的数据类型%T",day)
+	if day%5==0 ||  day%5==4{
+		fmt.Println("晒网")
+	}else{
+		fmt.Println("打鱼")
+	}
+}
 	//5、编写一个计算器，1加法2减法3乘法4除法0退出
-
+func ji(n int){
+	var num1 = 15
+	var num2 = 5
+	switch n{
+		case 1:
+			fmt.Printf("%d+%d=%d",num1,num2,num1+num2)
+		case 2:
+			fmt.Printf("%d-%d=%d",num1,num2,num1-num2)
+		case 3:
+			fmt.Printf("%d*%d=%d",num1,num2,num1*num2)
+		case 4:
+			fmt.Printf("%d/%d=%d",num1,num2,num1/num2)
+		case 0 :
+			break
+	default:
+		fmt.Println("输入有误")
+	}
+}
 	//6、输出小写的a-z以及大写的Z--A
