@@ -1,0 +1,106 @@
+package main
+
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+func main() {
+	/*var arr = [2][3]int{{1,2,4},{3,5,9}}
+	for _,v := range arr{
+		for _,val:= range v{
+			fmt.Print(val," ")
+		}
+		fmt.Println()
+	}*/
+	//chengji()
+	number()
+}
+
+//求班级学生的成绩和平均分
+func chengji(){
+	var class = [3][5]int{}
+	for i,v := range class{
+		for index,_ := range v{
+			fmt.Printf("请输入第%d班的第%d个学生的成绩\n",i+1,index+1)
+			fmt.Scanln(&class[i][index])
+		}
+	}
+
+	var totalSum float64 = 0.0
+	var num int = 0
+	for i,v := range class{
+		var sum float64 = 0.0
+		for _,val := range v{
+			sum += float64(val)
+			num ++
+		}
+		fmt.Printf("第%d班级的总分是%v，平均分是%.2f\n",i+1,sum,sum/float64(len(class[i])))
+		totalSum += sum
+	}
+	fmt.Printf("所有班级的总分是%v，学生人数%d,平均分是%.2f\n",totalSum,num,totalSum/float64(num))
+}
+
+//1、随机生成10个整数（1--100）保存到数组，并倒序打印，以及求平均值、求最大值和最大值的下标，并查找里面是否有55
+func number(){
+	rand.Seed(time.Now().UnixNano())
+	var arr  = [10]int{}
+	var sum int = 0
+	length := len(arr)
+	//给数组赋值
+	for i:=0;i<length;i++{
+		arr[i] = rand.Intn(100) +1
+	}
+	fmt.Println(arr)
+
+	//求和，查找
+	var flag = false
+	for j:=0;j<length;j++{
+		sum += arr[j]
+		if arr[j] == 55{
+			flag = true
+		}
+	}
+	fmt.Println(sum)
+	//倒序输出
+	for k:=0;k<length/2;k++{
+		var temp int
+		temp = arr[k]
+		arr[k] = arr[length-1-k]
+		arr[length-1-k] = temp
+	}
+
+	//求最大值
+	var maxValue int = arr[0]
+	var maxIndex int
+	for h:=1;h<length;h++{
+		if maxValue< arr[h]{
+			maxValue = arr[h]
+			maxIndex = h
+		}
+	}
+	fmt.Println(arr)
+	fmt.Printf("该数组的总和是%d\t，平均值是%.2f\t,最大值是%d\t,最大值的索引%d\t,是否包含55这个数%v\n",sum,float64(sum)/float64(length),maxValue,maxIndex,flag)
+}
+
+//2、已知有一个排序（升序）好的数组，要求插入一个元素，最后打印这个数组，依然是升序
+
+//3、定义一个3行4列的二维数组，逐个从键盘输入值，编写程序将四周的数据清零
+
+//4、定义一个4行4列的二维数组，逐个从键盘输入值，然后将第一行和第四行的数据进行交换，将第二行和第三行的数据进行交换
+
+//5、试保存1 3 5 7 9五个奇数到数组，并倒序打印
+
+//6、试写出实现查找的核心代码，比如已知数组arr[10]string,里面保存十个元素，现要查找“AA”是否存在，打印提示，如果有多个“AA”，也要找到对应的下标
+
+//7、随机生成10个整数（1-100），使用冒泡排序，然后使用二分查找，查找是否有90这个数，并显示下标，如果没有则提示“找不到该数”
+
+//8、编写一个函数，可以接收一个数组，该数组有5个元素，请找出最大的数和最小的数和对应的数组下标
+
+//9、定义一个数组，并给出8个整数，求该数组中大于平均值的数的个数，和小于平均值的数的个数
+
+
+//10、跳水比赛，8个评委打分，运动员成绩是去掉一个最高分和一个最低分，剩下的分数的平均分是最后得分，使用一维数组实现以下功能，
+//（1）请把打最高分的评委和最低分的评委找出来
+//（2）找出最佳评委和最差评委。最佳评委就是和最后得分相近的评委，最差评委就是和最后得分相差最大的。
