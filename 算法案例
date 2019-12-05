@@ -1,0 +1,41 @@
+内部算法，冒泡算法、快速算法
+//--------冒泡算法---------
+一共进行arr.length-1轮交换，每轮交换逐次减少，当前一个数比后一个数大时，开始交换
+
+func maopao(){
+	arr := []int{11,23,10,35,21,93,34,50,75,85}
+	len := len(arr)//10
+	var num int = 0
+	for i:=1;i<len;i++{
+		for j:=0;j<len-i;j++{
+			if arr[j+1]<arr[j]{
+				var temp = arr[j]
+				arr[j] = arr[j+1]
+				arr[j+1] = temp
+				num++
+			}
+		}
+
+	}
+
+	fmt.Println(arr)
+	fmt.Println(num)
+}
+
+func bull( arr *[10]int){
+	var num = 0
+	var length int = len(*arr)
+	for i :=0;i<length-1;i++{
+		for j:=0;j<length-i-1;j++{
+			if (*arr)[j] > (*arr)[j+1]{
+				temp := (*arr)[j]
+				(*arr)[j] = (*arr)[j+1]
+				(*arr)[j+1] = temp
+				num ++
+			}
+		}
+	}
+	fmt.Println(num)
+	fmt.Println(arr)
+}
+
