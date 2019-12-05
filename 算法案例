@@ -39,3 +39,41 @@ func bull( arr *[10]int){
 	fmt.Println(arr)
 }
 
+
+
+//---------------------查找-----------------
+1、顺序查找
+func shun(){
+	var name string
+	fmt.Println("请输入姓名")
+	fmt.Scanln(&name)
+	var arr = [5]string{"Tom","Jack","Bee","Neo","Luka"}
+	var index int = -1
+	for i,v := range arr{
+		if v == name{
+			index = i
+			break
+		}
+	}
+	if index != -1{
+		fmt.Printf("查找成功,下标为%v\n",index)
+	}else{
+		fmt.Printf("查找失败\n")
+	}
+}
+2、二分查找，只能是有序数组才能使用二分查找
+func ercent(arr []int,leftindex int,rightindex int,findval int){
+	if leftindex>rightindex{
+		fmt.Println("没有找到")
+		return
+	}
+	 middle := (leftindex+rightindex)/2
+	if arr[middle] > findval{
+		ercent(arr,leftindex,middle-1,findval)
+	}else if arr[middle] < findval{
+		ercent(arr,middle+1,rightindex,findval)
+	}else{
+		fmt.Printf("查到你所要的值，下标%d\n",middle)
+	}
+}
+
