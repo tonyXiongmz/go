@@ -283,6 +283,9 @@ func exec004(){
 			minIndex = i
 		}
 	}
+
+	fmt.Printf("打最高分的评委是%d，分数为%.2f\n",maxIndex+1,maxValue)
+	fmt.Printf("打最低分的评委是%d，分数为%.2f\n",minIndex+1,minValue)
 	var newArr = [8]float64 {}
 	newArr = arr
 	arr[maxIndex] = 0.0
@@ -292,9 +295,27 @@ func exec004(){
 		sum += v
 	}
 
-	var avgNum = sum/8
+	var avgNum = sum/(8-2)
+	fmt.Println("平均分=",avgNum)
+	var goodsValue float64 = math.Abs(avgNum - newArr[0])
+	var goodsIndex = 0
+	var loosValue float64 = math.Abs(avgNum - newArr[0])
+	var loosIndex = 0
 
-	for k,v := range newArr{
+	for i:=1;i<len(newArr);i++{
+		var fen = math.Abs(avgNum - newArr[i])
+		if  fen < goodsValue{
+			goodsValue = fen
+			goodsIndex = i
+		}
+
+		if fen > loosValue{
+			loosValue = fen
+			loosIndex = i
+		}
 
 	}
+
+	fmt.Printf("最佳评委是%d，与平均分差%.2f\n",goodsIndex+1,goodsValue)
+	fmt.Printf("最差评委是%d，与平均分差%.2f\n",loosIndex+1,loosValue)
 }
