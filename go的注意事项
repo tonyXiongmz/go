@@ -154,8 +154,13 @@ var (Fun := func(n1,n2 int) int{return n1*n2}) //匿名函数也可以赋给一�
  3）直接初始化并赋值，可以舍弃make,var m = map[string]string{"name":"xiong"}
 3、map是引用类型。
 4、map的长度能动态增长
+5、map本身是可以作为返回类型存在的，使用时还是需要make
 
 
 --------struct结构体-----------
 1、面向对象中的类，具有封装、继承、多态性,值类型
-2、定义结构体type funcName struct{}
+2、定义结构体type funcName struct{}，funcName大写则可以别外包调用，内部属性有默认值
+3、结构体的调用 
+1)name := funcName("string",int);
+2)var name *funcName = new(funcName)  (*name).name="xiong" name.name="tom"
+3)var name *funcName = &funcName{}  (*name).name="xiong" name.name="tom"
