@@ -163,4 +163,4 @@ var (Fun := func(n1,n2 int) int{return n1*n2}) //匿名函数也可以赋给一�
 3、结构体的调用 
 1)name := funcName("string",int);
 2)var name *funcName = new(funcName)  (*name).name="xiong" name.name="tom"
-3)var name *funcName = &funcName{}  (*name).name="xiong" name.name="tom"
+3)var name *funcName = &funcName{}或者 var name *funcName = &funcName{"name","xiong"} (*name).name="xiong" name.name="tom"
