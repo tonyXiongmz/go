@@ -161,6 +161,9 @@ var (Fun := func(n1,n2 int) int{return n1*n2}) //匿名函数也可以赋给一�
 1、面向对象中的类，具有封装、继承、多态性,值类型
 2、定义结构体type funcName struct{}，funcName大写则可以别外包调用，内部属性有默认值
 3、结构体的调用 
-1)name := funcName("string",int);
-2)var name *funcName = new(funcName)  (*name).name="xiong" name.name="tom"
-3)var name *funcName = &funcName{}或者 var name *funcName = &funcName{"name","xiong"} (*name).name="xiong" name.name="tom"
+ 1)name := funcName("string",int);
+ 2)var name *funcName = new(funcName)  (*name).name="xiong" name.name="tom"
+ 3)var name *funcName = &funcName{}或者 var name *funcName = &funcName{"name","xiong"} (*name).name="xiong" name.name="tom"+
+4、结构体的转换，必须字段类型，字段名称，字段长度都一致才可以。
+5、数据类型可以设别名，type interger int,但是int和interger不属于同一个数据类型，可以强制转换。
+
