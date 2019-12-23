@@ -172,3 +172,4 @@ var (Fun := func(n1,n2 int) int{return n1*n2}) //匿名函数也可以赋给一�
 -----------方法-------------
 1、方法是和类型绑定的，type person struct  func(p person)test(){} var a person a.test()
  1)test方法只能被person类型的变量调用，而不能直接调用，也不能被其他类型调用
+ 2)变量在调用方法时，其本身也会作为一个参数传入方法（如果变量是值类型则进行值拷贝，如果是引用类型则进行地址拷贝）
