@@ -1,0 +1,74 @@
+package main
+
+import "fmt"
+
+type multipart struct {
+
+}
+
+//输出一个m行n列的矩形
+func (mu multipart) jun(m ,n int){
+	for i:=1;i<=m;i++{
+		for j:=1;j<=n;j++{
+			fmt.Print("*")
+		}
+		fmt.Println()
+	}
+}
+
+//求长方形面积
+func (mu multipart) area(length , width float64) float64{
+	return length * width
+}
+
+//判断奇偶数
+func (mu *multipart) jo(num int){
+	if num%2==0{
+		fmt.Printf("%d是偶数",num)
+	}else {
+		fmt.Printf("%d是奇数",num)
+	}
+}
+
+
+type Personal struct {
+	Num1 float64
+	Num2 float64
+}
+//计算器
+func (p Personal) result(field string) float64{
+	res := 0.0
+	switch field{
+	case "+":
+		res = p.Num1 + p.Num2
+	case "-":
+		res = p.Num1 - p.Num2
+	case "*":
+		res = p.Num1 * p.Num2
+	case "/":
+		if p.Num2 == 0.0{
+			fmt.Println("除数不能为0")
+		}
+		res = p.Num1 / p.Num2
+	default:
+		fmt.Println("输入的参数有误")
+	}
+	return res
+}
+
+func main() {
+	var m multipart
+	m.jun(3,2)
+	fmt.Println()
+	fmt.Printf("面积为=%v\n",m.area(6.2,3.5))
+  
+  m.jo(11)
+  fmt.Println()
+  
+  
+	var p Personal
+	p.Num1 = 3.5
+	p.Num2 = 1.2
+	fmt.Printf("结果为%.2f\n",p.result("/"))
+}
+
