@@ -56,6 +56,17 @@ func (p Personal) result(field string) float64{
 	return res
 }
 
+//二维数组置换重组
+func (m MethodUtils) strrev( arr [3][3]int){
+	var arr2 = [3][3]int{}
+	for k,_ := range arr{
+		for i,j := range arr[k]{
+			arr2[i][k] = j
+		}
+	}
+	fmt.Println(arr2)
+}
+
 func main() {
 	var m multipart
 	m.jun(3,2)
@@ -70,5 +81,12 @@ func main() {
 	p.Num1 = 3.5
 	p.Num2 = 1.2
 	fmt.Printf("结果为%.2f\n",p.result("/"))
+	
+	arr := [3][3] int{
+		{1,2,3},
+		{4,5,6},
+		{7,8,9},
+	}
+	me.strrev(arr)
 }
 
