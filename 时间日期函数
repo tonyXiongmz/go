@@ -50,6 +50,12 @@ func main() {
 	ti()
 	end := time.Now().Unix()
 	fmt.Printf("执行十万次的数据所需要的时间%v秒\n",end-start)
+	
+	6、格式化时间戳
+	var Un = 1604902682
+	var tt = time.Unix(int64(Un),0)
+	
+	tt.Format("2006-01-02 15:04:05")
 }
 
 func ti(){
