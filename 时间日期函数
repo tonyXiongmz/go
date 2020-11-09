@@ -56,6 +56,12 @@ func main() {
 	var tt = time.Unix(int64(Un),0)
 	
 	tt.Format("2006-01-02 15:04:05")
+	
+	7、日期转换时间戳
+	var timeT = "2020-11-09 14:35:30"
+	var tmp = "2006-01-02 15:04:05"
+	 obj,_ := time.ParseInLocation(tmp,timeT,time.Local)//返回两个参数，第二个是错误信息
+	fmt.Println(obj.Unix())
 }
 
 func ti(){
