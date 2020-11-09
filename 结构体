@@ -1,0 +1,39 @@
+1、结构体的定义,type关键字开头，struct关键字结尾
+type Person struct{
+  Name string
+  Age int
+  }
+  
+ 2、结构体的使用
+ 1)方法1
+ var p = Person{
+ Name:"rony",
+ Age:20,
+ }
+ 
+ 2）方法2
+ var p Person
+ p.Name = "tony"
+ p.Age = 18
+ 
+ 3、结构体函数
+ func (p Person) getUserInfo(){
+ 
+ }
+ 
+ 4、结构体指针函数，可以修改结构体的值
+ func (p *Person) setUser(name string,age int){
+  p.Name = name
+  p.Age = age
+ }
+ 
+ 5、结构体嵌套和继承
+ type Animal struct{
+ Name  string
+ }
+ 
+ type Dog struct{
+  Hobby string
+  Animal
+ }
+ 
