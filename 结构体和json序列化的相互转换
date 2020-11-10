@@ -1,0 +1,52 @@
+package main
+
+import (
+	"fmt"
+	"encoding/json"
+)
+
+type Student struct{
+	Id int `json:"id"`
+	Name string `json:"name"`
+	Age int `json:"age"`
+	Gender string	`json:"gender"`
+}
+
+type Class struct{
+	Title string `json:"title"`
+	Student []Student `json:"student"`
+}
+
+func main(){
+
+	//结构体转换为json字符串
+	c := Class{
+		Title:"高三一班",
+		Student:make([]Student,0,100),
+	}
+
+	for i:=1;i<=10;i++{
+		s := Student{
+				Id:i,
+				Name:fmt.Sprintf("stu_%d",i),
+				Age:17+i,
+				Gender:"men",
+			}
+		c.Student = append(c.Student,s)
+	}
+
+	str,_ := json.Marshal(c)
+	fmt.Println(string(str))
+
+
+	//json字符串转结构体
+	var str1 = `{"title":"高三一班","student":[{"id":1,"name":"stu_1","age":18,"gender":"men"},{"id":2,"name":"stu_2","age":19,"gender":"men"},{"id":3,"name":"stu_3","age":20,"gender":"men"},{"id":4,"name":"stu_4","age":21,"gender":"men"},{"id":5,"name":"stu_5","age":22,"gender":"men"},{"id":6,"name":"stu_6","age":23,"gender":"men"},{"id":7,"name":"stu_7","age":24,"gender":"men"},{"id":8,"name":"stu_8","age":25,"gender":"men"},{"id":9,"name":"stu_9","age":26,"gender":"men"},{"id":10,"name":"stu_10","age":27,"gender":"men"}]}`
+	var c1 = &Class{}
+
+	json.Unmarshal([]byte(str1),c1)
+	fmt.Printf("%#v\n",c1)
+	fmt.Printf("%v",c1.Title)
+
+
+
+}
