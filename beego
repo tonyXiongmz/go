@@ -3,3 +3,4 @@
 3、安装beego框架必须确保本机已经安装了go和git环境
 4、在GOPATH的src目录下创建项目bee new myproject
 5、go项目通过go.mod来管理，在项目目录下执行go init mod命令生成，命令生成的项目会自带该文件。
+6、在项目目录下运行bee run 命令，会下载各种安装包插件，同时告知该项目的运行端口号
