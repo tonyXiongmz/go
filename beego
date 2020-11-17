@@ -1,6 +1,7 @@
 1、beego用bee的命令来安装项目目录
-2、安装bee必须配置电脑的环境变量中的GOROOT和GOPATH，否则安装不成功，go get github.com/beego/bee，dos命令中直接下载，然后用bee命令测试是否安装成功。
+2、安装bee必须配置电脑的环境变量中的GOROOT和GOPATH，否则安装不成功，GOPATH目录下必须包含src,bin,pkg三个目录，go get github.com/beego/bee，dos命令中直接下载，然后用bee命令测试是否安装成功。
 3、安装beego框架必须确保本机已经安装了go和git环境
 4、在GOPATH的src目录下创建项目bee new myproject,如果只开放API应用bee api myapi
 5、go项目通过go.mod来管理，在项目目录下执行go init mod命令生成，命令生成的项目会自带该文件。
 6、在项目目录下运行bee run 命令，会下载各种安装包插件，同时告知该项目的运行端口号
+7、要接受xml请求时，必须配置CopyRequestBody=true,修改配置文件后需要重新启动项目bee run
